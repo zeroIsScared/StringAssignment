@@ -33,7 +33,7 @@ namespace StringAsignment
                 }
             }
 
-            for (int i = 283; i >= 0; i-- )
+            for (int i = words.Length; i >= 0; i-- )
             {
                 if (words[i].Contains("."))
                 {
@@ -48,6 +48,61 @@ namespace StringAsignment
             Console.WriteLine($"encapsulation count = {encapsulations.Count}");
             Console.WriteLine(newString);
             Console.WriteLine(reverseString);
+
+            //Write a C# Sharp program to extract the Date property and display the DateTime value in the formatted output. 
+
+var date = DateTime.Now;
+var offSetTime = DateTimeOffset.Now;
+
+var timeZone1 = TimeZone.CurrentTimeZone;
+var timeZone2 = TimeZoneInfo.Utc;
+
+string displayDateTime = String.Format("Today is {0} and the time is {1}", date.ToString("dd MMM, yyyy"), date.ToString("HH:mm"));
+string displayDateTimeOffset = $"Off set Time : {offSetTime.ToString("MMM dd yy")}";
+Console.WriteLine(displayDateTime);
+Console.WriteLine(displayDateTimeOffset);
+Console.WriteLine(timeZone1.DaylightName);
+Console.WriteLine(timeZone2.DaylightName);
+
+//Write a C# Sharp program to display the number of days of the year between two specified years. 
+
+var bookingDate = new DateTime(2026, 05,25);
+var bookingDate1 = new DateTime(2024, 04, 01);
+var daysUntilTravel1 = (bookingDate1 - date).Days;
+var daysUntilTravel = (bookingDate - date).Days;
+TimeSpan interval = bookingDate - bookingDate1;
+
+Console.WriteLine($" days:{interval.Days}, hours: {interval.Hours}, minutes: {interval.Minutes}");
+Console.WriteLine( daysUntilTravel);
+Console.WriteLine(daysUntilTravel1);
+
+
+//10. Write a C# Sharp program to determine the day of the week 40 days after the current date. 
+
+var dayOfTheWeek = date.AddDays(40).DayOfWeek;
+Console.WriteLine(dayOfTheWeek);
+
+//16.Write a C# Sharp program that compares two dates.
+
+if (bookingDate > bookingDate1)
+{ 
+    Console.WriteLine($"The {bookingDate} is not earlier than {bookingDate1}");
+}
+else
+{   
+
+    Console.WriteLine($"The {bookingDate} is earlier than {bookingDate1}");
+}
+
+Console.WriteLine(bookingDate > bookingDate1);
+
+//CultureInfo
+Console.WriteLine(CultureInfo.CurrentCulture.Name);
+
+int price = 20;
+string culInfo = string.Format(new System.Globalization.CultureInfo("en-GB"), "{0:C}", price);
+
+Console.WriteLine(culInfo);
         }
     }
 }
