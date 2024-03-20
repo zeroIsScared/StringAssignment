@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
+using System.Text;
 
 namespace StringAsignment
 {
@@ -9,8 +11,8 @@ namespace StringAsignment
         
         //- Display the word count of this string
         //- Display the sentence count of this string
-        //- Display how often the word "encapsulation" appears in this string
-        //- Display this string in reverse, without using any C# language feature. (Create your own algorith)
+        
+        
         //- In the given string, replace all occurances of "object-oriented programming" with "OOP" and display the new string
         static void Main(string[] args)
         {
@@ -19,35 +21,35 @@ namespace StringAsignment
             string[] sentences = text.Split('.');
           
             string newString = text.Replace("object-oriented programming", "OOP");
-            string reverseString = "";
-            
 
-            List<string> encapsulations = new List<string>();
-
+            //- Display how often the word "encapsulation" appears in this string
+            int repCount = 0;
             foreach (string word in words)
             {
                 Console.WriteLine(word);
                 if (word.Contains("encapsulation"))
                 {
-                    encapsulations.Add(word);
+                    repCount++;
                 }
             }
 
-            for (int i = words.Length; i >= 0; i-- )
+            Console.WriteLine(repCount);
+
+            //- Display this string in reverse, without using any C# language feature. (Create your own algorith)
+
+            StringBuilder reverse = new StringBuilder();
+
+            for (int i = text.Length -1; i >= 0; i-- )
             {
-                if (words[i].Contains("."))
-                {
-                    words[i] = words[i].Replace(".", "");
-                }
-                reverseString = reverseString +" "+ words[i];
+                reverse.Append(text[i]);            
+                
             }
-
 
             Console.WriteLine($"word count = {words.Length}");
             Console.WriteLine($"sentence count = {sentences.Length}");
-            Console.WriteLine($"encapsulation count = {encapsulations.Count}");
+           
             Console.WriteLine(newString);
-            Console.WriteLine(reverseString);
+            Console.WriteLine(reverse);
 
             //Write a C# Sharp program to extract the Date property and display the DateTime value in the formatted output. 
 
